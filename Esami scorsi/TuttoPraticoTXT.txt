@@ -21,11 +21,8 @@ f=@(x) (x.^2-0.5001*x+5*10^-5)./(x-sol_1);
 sol_2=fzero(f,0)
 
 
-
 Approssimare analiticamente, con la formula del punto medio, l'integrale int(5.2, 3.1)exp(6*t)
 SOLUZIONE: (5.2 – 3.1) f [6*(3.1+5.2)/2]
-
-
 
 Data la Matrice e il termine noto b, far sì che la soluzione sia x = [1, 0, 1, 0, 1, 0, 1]’
 con metodo di Gauss-Seidel e metodo di Jacobi.
@@ -103,7 +100,10 @@ Dati 3 punti, implementare in Matlab il polinomio interpolante in forma di Lagra
 farne il grafico nell'intervallo [0.05, 1.5] evidenziando i punti di interpolazione.
 Aggiungere al grafico precedente il grafico della funzione f(x) = -cos(x)./x e la legenda.
 Costruire il polinomio interpolante in Matlab attraverso il comando polyfit.
-Costruire in Matlab i polinomi di interpolazione di Lagrange della funzione f con numero di nodi crescente n = 5 : 5 : 50 equispaziati [nell'intervallo [0.05, 1.5]. Per ogni valore n memorizzare l'errore commesso nell'approssimazione di f su una griglia uniforme di 1000 punti.Fare la stessa cosa con polyfit.
+Costruire in Matlab i polinomi di interpolazione di Lagrange della funzione f con numero di
+nodi crescente n = 5 : 5 : 50 equispaziati [nell'intervallo [0.05, 1.5]. Per ogni valore n
+memorizzare l']errore commesso nell'approssimazione di f su una griglia uniforme di 1000 punti.
+Fare la stessa cosa con polyfit.
 % Esercizio
 close all
 clear
@@ -158,6 +158,7 @@ for j=1:length(x_interp)
         L=L.*(x-x_interp(j))/(x_interp(i)-x_interp(j));
     end
 end
+
 for n=5:5:50
     y=0;
     x_interp=linspace(a,b,n);
@@ -228,6 +229,7 @@ A=hilb(10);
 disp(A);
 cond(A);
  
+
 
 Dati i punti di coordinate P1 = (1, 2); P2 = (3, 1); P3 = (7, 0); determinare analiticamente il
 polinomio interpolatore di grado 2. Ricostruire il polinomio in forma di Newton definito,
@@ -627,7 +629,6 @@ end
 
 
 
- 
 Data una funzione, i due estremi e 3 punti traccia i grafici dei polinomi interpolatori semplici
 e compositi
 clear
@@ -744,7 +745,6 @@ hold off;
 
 
 
- 
 Controllo unicità della soluzione convergenza del metodo
 for i = 1:3
     A = [1 1 i; -1 2 0.2; 1 -0.1 2];
@@ -841,4 +841,18 @@ switch z
    disp('qui')    case 1 
    disp('quo')    otherwise    disp('qua') 
 end
+
+
+ERRORE
+Dato un valore esatto risultato di un metodo o sistema che sia,
+e dato un valore approssimato risultato di un metodo approssimante
+il metodo originale, chiamiamo errore assoluto la differenza che
+restituisce lo scostamento dal valore esatto: eabs = |valore esatto - valore approssimato
+errore relativo invece: erel = eabs/|valore esatto| Queste due tipologie si fanno 
+al concetto di condizionamento.
+
+CONDIZIONAMENTO
+Diciamo che una funzione o modello  è ben condizionato se la seguente relazione vale:
+||f(x + BETAx) - f(x)|| / ||f(x)|| <= k * (||BETAX||/||x||)
+con f e x != 0
 
